@@ -1,0 +1,19 @@
+.MainContainer {
+    text-align: center;
+  }
+.cardView {
+    text-align: center;
+    display: flex;
+    flex: 0.4;
+    background-color:white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    align-items: "center";
+    justify-content: "center";
+    border-radius: 13px;
+}
+.chart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 150px;
+}
