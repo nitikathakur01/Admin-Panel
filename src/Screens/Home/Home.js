@@ -1,11 +1,14 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Accordion, AccordionDetails, AccordionSummary, Box, Drawer, StyledEngineProvider } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Drawer, StyledEngineProvider } from '@mui/material';
 import { LineChart, PieChart } from '@mui/x-charts-pro';
 import { useState } from 'react';
 import Header from '../../Components/Header';
 import './styles.css';
+import { useSelector } from 'react-redux';
+import { decrementNumber, incrementNumber } from '../../Store/Actions/Login';
 
 function Home() {
+    const { value } = useSelector((state) => state)
     const [open, setOpen] = useState(false);
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
@@ -43,6 +46,11 @@ function Home() {
                     </Accordion>
                 </Box>
             </Drawer>
+            <div>
+                <p>{value}</p>
+                <Button variant="contained" onClick={() => incrementNumber()}>increment</Button>
+                <Button variant="contained" onClick={() => decrementNumber()}>decrement</Button>
+            </div>
             <div className="chart">
                 <div className="cardView">
                     <LineChart
@@ -70,7 +78,8 @@ function Home() {
                         ]}
                         width={400}
                         height={400}
-                    /> </div>
+                    />
+                </div>
             </div>
         </div>
     );
